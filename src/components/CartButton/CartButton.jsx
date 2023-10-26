@@ -1,32 +1,29 @@
-import React from 'react'
-import {BsCart3} from 'react-icons/bs'
+import React, { useContext } from 'react'
+import { AiOutlineShoppingCart } from 'react-icons/ai'  
+import './CartButton.css'
+import AppContext from '../../context/AppContext'
+
 
 function CartButton() {
-    return ( 
-        <>
+
+   const { cartItems, isCartVisible, setIsCartVisible } =useContext(AppContext)
+
+    return (
+        <section>
 
             <button 
-            style={{fontSize:'1.5rem', color:'#222'}}
-            className='border-0 bg-transparent position-relative  '
+            
+            type='button'  
+            className='cart__button' accordion 
+            onClick={()=>setIsCartVisible(!isCartVisible)}
             >
-                <BsCart3/>
-
-                <span 
-                style={{fontSize:'11px', width:'18px', height:'18px', borderRadius:'18px' }}
-                className='bg-danger p-2 text-white position-absolute top-0 end-0 d-flex justify-content-center align-items-center ' >
-                    3
-                </span>
+            <AiOutlineShoppingCart/>         
+            { cartItems.length > 0 && <span className="cart-status">{cartItems.length}</span> }
 
             </button>
 
-            
-
-        </>
+        </section>
     )
 }
 
 export default CartButton
-
-
-
-

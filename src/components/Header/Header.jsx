@@ -1,16 +1,17 @@
-import React from 'react' 
-import SearchBar from '../Search/SearchBar'
+import React from 'react'
+import './Header.css'
+import SearchBar from '../SeachBar/SearchBar'
 import CartButton from '../CartButton/CartButton'
 
 function Header() {
-    return ( 
-        <header 
-            style={{background:'#fff159'}}
-            className='p-3 shadow-sm d-flex justify-content-between align-items-center position-fixed w-100  '
-        >
-            <SearchBar/>
-            <CartButton/>
+    return (
+        <header className='header'  >
+            <div className='container' >
 
+                <SearchBar/>
+                <CartButton/>
+
+            </div>
         </header>
     )
 }
